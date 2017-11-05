@@ -53,8 +53,8 @@ def VOD_darkflow(video_path, video_fps, video_w, video_h, tf_threshold=0.3, tf_g
     
     # Define the codec and create VideoWriter object
     fourcc = cv2.VideoWriter_fourcc(*'XVID')
-    if output_name == 0:
-        output_name = camVideo.avi
+    if video_path == 0:
+        output_name = 'camVideo.avi'
     out = cv2.VideoWriter(('./demo_folder/'+output_name), fourcc, video_fps, (video_w, video_h))
 
     while(True):
