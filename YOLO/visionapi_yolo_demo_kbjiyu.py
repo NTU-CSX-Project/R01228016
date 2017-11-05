@@ -3,7 +3,6 @@ import cv2
 import sys
 import json
 import numpy as np
-import pandas as pd
 from darkflow.net.build import TFNet
 
 def to_json(dicto, json_file_name='test.json'):
@@ -20,7 +19,7 @@ def to_json(dicto, json_file_name='test.json'):
     fp.close()
 
 
-def VOD_darkflow(video_path, video_fps, video_w, video_h, tf_threshold=0.3, tf_gpu=0.9, output_name='VOD_result.avi'):
+def VOD_darkflow(video_path, video_fps, tf_threshold=0.3, tf_gpu=0.9, output_name='VOD_result.avi'):
     
     # Set TFNet initiail options
     options = {"model": "cfg/yolo.cfg",
@@ -47,14 +46,20 @@ def VOD_darkflow(video_path, video_fps, video_w, video_h, tf_threshold=0.3, tf_g
         os.makedirs('./demo_folder/obj_images/objImg_low')
     if not os.path.exists('./demo_folder/obj_info'):
         os.makedirs('./demo_folder/obj_info/') 
-    
+
     # Capture Video
     cap = cv2.VideoCapture(video_path)
     
-    # Define the codec and create VideoWriter object
-    fourcc = cv2.VideoWriter_fourcc(*'XVID')
     if video_path == 0:
         output_name = 'camVideo.avi'
+        video_w = 800
+        video_h = 600
+    else:
+        video_w = int(cap.get(3)) # float
+        video_h = int(cap.get(4)) # float
+        
+    # Define the codec and create VideoWriter object
+    fourcc = cv2.VideoWriter_fourcc(*'XVID')
     out = cv2.VideoWriter(('./demo_folder/'+output_name), fourcc, video_fps, (video_w, video_h))
 
     while(True):
@@ -122,6 +127,8 @@ def VOD_darkflow(video_path, video_fps, video_w, video_h, tf_threshold=0.3, tf_g
         cv2.imshow('frame',frame)
 
         # write the frame to the output
+        if video_path == 0:
+            frame = cv2.resize(frame,(video_w, video_h), interpolation = cv2.INTER_CUBIC)
         out.write(frame)
 
         # Check time spent
@@ -159,8 +166,6 @@ def VOD_darkflow(video_path, video_fps, video_w, video_h, tf_threshold=0.3, tf_g
 
 
 # VOD_darkflow Example:
-VOD_darkflow(video_path='./mergeee.avi', 
+VOD_darkflow(video_path=0, 
              video_fps=30, 
-             video_w=800, 
-             video_h=600, 
-             output_name='mergeee_taged.avi')
+             output_name='DEMO.avi')
