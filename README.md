@@ -18,14 +18,18 @@
 3. Video processing with **opencv**, tagging and exporting.
 <br><a href="http://www.youtube.com/watch?feature=player_embedded&v=K6K0ru4h6PY
 " target="_blank"><img src="http://img.youtube.com/vi/K6K0ru4h6PY/0.jpg" 
-alt="YOLO Demo Video" width="280" height="210" border="10" /></a><- video link :heartpulse: <br>
+alt="YOLO Demo Video" width="420" height="315" border="10" /></a> <-video link:heartpulse: <br>
 
 ## Titanic :boat: :scream_cat: :rose: 
 1. Deep learning framework practice with **Pytorch and Keras**.
 2. Deep learning studies with **MNIST, Cifar-10 and IMDb datasets**, building **CNN, MLP**.
 3. Building **MLP model** to predict survival prediction of Titanic datasets.
+<br><img src="https://github.com/NTU-CSX-Project/R01228016/blob/master/Titanic/train_show.JPG" 
+alt="Titanic Dataset Training History" width="420" height="315" border="10" /></a><br>
 
 ## UtilizationDataLog :computer: :fire: :chart_with_upwards_trend: 
 1. Data **visualization** with Plotly.
 2. **Resample** data with different timeframe.
 3. Prediction with **time-series tag** and **LSTM**.
+<br><img src="https://github.com/NTU-CSX-Project/R01228016/blob/master/UtilizationDataLog/data_show.JPG" 
+alt="Data Timeline Preview" width="578" height="266" border="10" /> <br>
