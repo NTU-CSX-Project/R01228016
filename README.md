@@ -5,7 +5,7 @@
 [![CS+X Badge](https://img.shields.io/badge/CS%2BX-Building-orange.svg)](https://img.shields.io/badge/CS%2BX-Building-orange.svg)
 
 ## About this github project
--- Hi, I am kbjiyu :kissing_closed_eyes: --
+-- Hi, I am kbjiyu --
 
 ## 2017 NTU-CSX-Project 
 * **YOLO** Video-tagging project.
